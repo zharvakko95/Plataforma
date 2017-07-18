@@ -1,0 +1,21 @@
+/*Quita las flechas del input numerico*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	/* display: none; <- Crashes Chrome on hover */
+	-webkit-appearance: none;
+	margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+#home-carousel {
+	background-image: url("../images/bg.jpg"); 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	
+}
+
+#home-carousel-content {
+	text-align: center;
+	padding: 19% 0%;
+}
