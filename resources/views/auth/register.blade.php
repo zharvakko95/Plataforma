@@ -88,22 +88,22 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('id_areaFK') ? ' has-error' : '' }}">
-                       <label for="id_areaFK" class="col-md-4 control-label">Área Asignada</label>
+                    <div class="form-group{{ $errors->has('id_areaFK') ? ' has-error' : '' }}">
+                           <label for="id_areaFK" class="col-md-4 control-label">Área Asignada</label>
 
-                       <div class="col-md-6">
-                        <select id="id_areaFK" class="form-control" name="id_areaFK">
-                          <option value="1">vendedor</option>
-                          <option value="2">cliente</option>
-                          <option value="3">colaborador</option>
-                        </select>
+                           <div class="col-md-6">
+                            <select id="id_areaFK" class="form-control" name="id_areaFK">
+                              <option value="1">vendedor</option>
+                              <option value="2">cliente</option>
+                              <option value="3">colaborador</option>
+                            </select>
 
-                        @if ($errors->has('id_areaFK'))
-                        <span class="help-block">
-                          <strong>{{ $errors->first('id_areaFK') }}</strong>
-                        </span>
-                        @endif
-                       </div>
+                            @if ($errors->has('id_areaFK'))
+                            <span class="help-block">
+                              <strong>{{ $errors->first('id_areaFK') }}</strong>
+                            </span>
+                            @endif
+                           </div>
                     </div>
 
                         <div class="form-group{{ $errors->has('role') ? ' has-error' : '' }}">
