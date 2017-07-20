@@ -6,16 +6,20 @@ input::-webkit-inner-spin-button {
 	margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
 
-#home-carousel {
+#carrousel {
 	background-image: url("../images/bg.jpg"); 
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
-	
+        background-position: center;
+        padding: 20% 0;
 }
 
-#home-carousel-content {
+#carrousel-content {
 	text-align: center;
-	padding: 19% 0%;
+}
+
+.contenido {
+	margin-top: -22px;
 }
