@@ -22,7 +22,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $grades = Grade::all();
-        return view('home')->with('grades',compact('grades'));
+        return view('home')->with('grades', Grade::all('name'));
     }
 }

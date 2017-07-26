@@ -12,7 +12,7 @@
             <div>
                 <ul>
                     @foreach ($grades as $grade)
-                    <li>{{ $grade }}</li>
+                    <li>{{ $grade->name }}</li>
                     @endforeach
                 </ul>
             </div>
