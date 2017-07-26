@@ -1,8 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
+use App\Grade;
 
 class HomeController extends Controller
 {
@@ -23,6 +22,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $grades = Grade::all();
+        return view('home')->with('grades',compact('grades'));
     }
 }

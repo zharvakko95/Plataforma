@@ -4,8 +4,17 @@
 <div class="contenido">
     <div class="row">
         <div class="col-md-12">
-            <div id="carrousel">
-                <div id="carrousel-content"></div>
+            <div id="carrousel" style="display: none;">
+                <div id="carrousel-content1"></div>
+                <div id="carrousel-content2"></div>
+                <div id="carrousel-content3"></div>
+            </div>
+            <div>
+                <ul>
+                    @foreach ($grades as $grade)
+                    <li>{{ $grade }}</li>
+                    @endforeach
+                </ul>
             </div>
         </div>
     </div>

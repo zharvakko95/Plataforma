@@ -29,9 +29,15 @@
                         </button>
 
                         <!-- Branding Image -->
+                        @if (Auth::guest())
+                        <a class="navbar-brand" href="{{ route('login') }}">
+                            {{ config('app.name', 'Laravel') }}
+                        </a>
+                        @else
                         <a class="navbar-brand" href="{{ url('/') }}">
                             {{ config('app.name', 'Laravel') }}
                         </a>
+                        @endif
                     </div>
 
                     <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -47,7 +53,7 @@
                             <li><a href="{{ route('login') }}">Sesión</a></li>
                             <li><a href="{{ route('register') }}">Registro</a></li>
                             @else
-                            <li><a href="#">+ Curso</a></li>
+                            <li><a href="{{ route('registrarcurso') }}">+ Curso</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>

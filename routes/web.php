@@ -14,9 +14,11 @@
 Route::get('/', function () {
     return view('home');
 });
+
 Route::get('/registrarcurso', function () {
     return view('registrar_curso');
-});
+})->name('registrarcurso');
+
 Route::post('store','GradesController@store');
 
 Auth::routes();
