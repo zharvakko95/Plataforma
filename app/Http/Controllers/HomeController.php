@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Grade;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -22,6 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+      
         return view('home')->with('grades', Grade::all('name'));
     }
 }

@@ -10,11 +10,14 @@
                 <div id="carrousel-content3"></div>
             </div>
             <div>
+
                 <ul>
                     @foreach ($grades as $grade)
                     <li>{{ $grade->name }}</li>
                     @endforeach
                 </ul>
+              }
+
             </div>
         </div>
     </div>
