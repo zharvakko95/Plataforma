@@ -39,4 +39,5 @@ input::-webkit-inner-spin-button {
 
 .contenido {
 	margin-top: -22px;
+        list-style-type: none;
 }

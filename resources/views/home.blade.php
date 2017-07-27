@@ -12,7 +12,7 @@
             <div>
                 <ul>
                     @foreach ($grades as $grade)
-                    <li>{{ $grade->name }}</li>
+                    <li><a href="{{ url('/curso?'.$grade->id) }}">{{ $grade->name }}<a></li>
                     @endforeach
                 </ul>
             </div>

@@ -18,7 +18,7 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('secret'),
             'code' => '9876',
             'id_areaFK' => '1',
-            'id_roleFK' => '1',
+            'id_roleFK' => '3',
         ]);
 
         DB::table('users')->insert([
@@ -28,7 +28,7 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('secret'),
             'code' => '9876',
             'id_areaFK' => '1',
-            'id_roleFK' => '1',
+            'id_roleFK' => '3',
         ]);
     }
 }
