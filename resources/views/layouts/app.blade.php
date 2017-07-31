@@ -53,8 +53,15 @@
                             <li><a href="{{ route('login') }}">Sesión</a></li>
                             <li><a href="{{ route('register') }}">Registro</a></li>
                             @else
+                            
+                            @if(Request::is('curso'))
+                            <li><a href="{{ url('registertopic/id='.$id) }}">+ Tema</a></li>
+                            @endif
+                            
+                            @if(!Request::is('curso'))
                             <li><a href="{{ route('registrarcurso') }}">+ Curso</a></li>
-                            <li><a href="{{ route('registertopic') }}">+ Tema</a></li>
+                            @endif
+                            
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>

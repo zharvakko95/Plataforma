@@ -23,8 +23,8 @@ Route::get('/registrarcurso', function () {
     return view('registrar_curso');
 })->name('registrarcurso');
 
-Route::get('/registertopic', function () {
-    return view('register_topic');
+Route::get('/registertopic/id={id}', function ($id) {
+    return view('register_topic', ['id' => $id]);
 })->name('registertopic');
 
 Route::get('/curso', function () {

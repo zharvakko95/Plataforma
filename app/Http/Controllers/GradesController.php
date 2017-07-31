@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Input;
 class GradesController extends Controller {
 
     public function index($id) {
-        return view('curso')->with('topics', Topic::where('id_cursoFK', '=', $id)->get());
+        return view('curso', ['id' => $id])->with('topics', Topic::where('id_cursoFK', '=', $id)->get());
     }
 
     public function store(Request $request) {

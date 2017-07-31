@@ -81,7 +81,7 @@
                         <div class="form-group{{ $errors->has('id_cursoFK') ? ' has-error' : '' }}">
 
                             <div class="col-md-6">
-                                <input id="id_cursoFK" type="hidden" class="form-control" name="id_cursoFK" value="1" required>
+                                <input id="id_cursoFK" type="hidden" class="form-control" name="id_cursoFK" value="{{ $id }}" required>
 
                                 @if ($errors->has('id_cursoFK'))
                                 <span class="help-block">
