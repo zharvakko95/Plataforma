@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Topic;
+use App\Grade;
 
 class TopicController extends Controller
 {
@@ -13,7 +15,7 @@ class TopicController extends Controller
      */
     public function index()
     {
-        //
+        $cursos = Grade::all('id');
     }
 
     /**
@@ -34,7 +36,16 @@ class TopicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $topic = new Topic;
+        $topic->name = $request['name'];
+        $topic->description = $request['description'];
+        $topic->id_topic1FK = $request['id_topic1FK'];
+        $topic->id_topic2FK = $request['id_topic2FK'];
+        $topic->video = $request['video'];
+        $topic->id_cursoFK = $request['id_cursoFK'];
+
+        $topic->save();
+        return redirect('home');
     }
 
     /**

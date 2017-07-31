@@ -10,14 +10,11 @@
                 <div id="carrousel-content3"></div>
             </div>
             <div>
-
                 <ul>
                     @foreach ($grades as $grade)
-                    <li><a href="{{ url('/curso?'.$grade->id) }}">{{ $grade->name }}<a></li>
+                    <li><a href="{{ url('curso/id='.$grade->id) }}">{{ $grade->name }}<a></li>
                     @endforeach
                 </ul>
-              }
-
             </div>
         </div>
     </div>

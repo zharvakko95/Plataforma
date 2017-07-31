@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Grades Register</div>
+                <div class="panel-heading">Registro del Curso</div>
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="store" enctype="multipart/form-data">
                         {{ csrf_field() }}

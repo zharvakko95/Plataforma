@@ -13,8 +13,14 @@ class CreateTopicsTable extends Migration
      */
     public function up()
     {
-        Schema::create('topics', function (Blueprint $table) {
+        Schema::create('topic', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->string('description');
+            $table->integer('id_topic1FK')->nullable();
+            $table->integer('id_topic2FK')->nullable();
+            $table->string('video');
+            $table->integer('id_cursoFK');
             $table->timestamps();
         });
     }
@@ -26,6 +32,6 @@ class CreateTopicsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('topics');
+        Schema::dropIfExists('topic');
     }
 }
