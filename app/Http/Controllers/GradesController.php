@@ -14,7 +14,7 @@ class GradesController extends Controller {
     }
 
     public function store(Request $request) {
-        $curso = new grade;
+        $curso = new Grade;
         $curso->name = $request['name'];
         // $curso->logotipo = $request['logotipo'];
         if (isset($request->logotipo)) {

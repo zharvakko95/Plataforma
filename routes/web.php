@@ -23,9 +23,9 @@ Route::get('/registrarcurso', function () {
     return view('registrar_curso');
 })->name('registrarcurso');
 
-Route::get('/registertopic/id={id}', function ($id) {
+Route::get('/registertopic/id/{id}', function ($id) {
     return view('register_topic', ['id' => $id]);
-})->name('registertopic');
+});
 
 Route::get('/curso', function () {
     return view('curso');

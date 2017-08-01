@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Topic;
-use App\Grade;
 
 class TopicController extends Controller
 {
@@ -15,7 +14,7 @@ class TopicController extends Controller
      */
     public function index()
     {
-        $cursos = Grade::all('id');
+        
     }
 
     /**
