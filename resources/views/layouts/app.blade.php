@@ -54,13 +54,13 @@
                             <li><a href="{{ route('register') }}">Registro</a></li>
                             @else
 
-                            @if(!Request::is('registrarcurso') && !Request::is('home'))
-                            <li><a href="{{ url('registertopic/id/'.$id) }}">+ Tema</a></li>
+                            @if(!Request::is('registrarcurso') && !Request::is('home') && !Request::is('registertopic'))
+                            <li><a href="{{ url('registertopic/id/'.'1') }}">+ Tema</a></li>
                             <li><a href="#">Editar Curso</a></li>
                             @elseif(Request::is('home') && !Request::is('curso'))
                             <li><a href="{{ route('registrarcurso') }}">+ Curso</a></li>
                             @elseif (!Request::is('home'))
-                            <li><a href="{{ route('registrarcurso') }}"></a></li>
+                            
                             @endif
 
                             <li class="dropdown">

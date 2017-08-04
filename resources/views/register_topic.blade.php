@@ -44,16 +44,16 @@
                             <div class="col-md-6">
                                 <select id="id_topic1FK" class="form-control" name="id_topic1FK">
                                     <option value="0" selected>Seleccione...</option>
-                                    @if(true)
-                                    <option value="1">Quiénes Somos</option>
-                                    @endif
+                                    @foreach($topics as $topic)
+                                    <option value="{{ $topic->id }}">{{ $topic->name }}</option>
+                                    @endforeach
                                 </select>
                                 
                                 <select id="id_topic2FK" class="form-control" name="id_topic2FK">
                                     <option value="0" selected>Seleccione...</option>
-                                    @if(true)
-                                    <option value="1">Quiénes Somos</option>
-                                    @endif
+                                    @foreach($topics as $topic)
+                                    <option value="{{ $topic->id }}">{{ $topic->name }}</option>
+                                    @endforeach
                                 </select>
 
                                 @if ($errors->has('id_topicFK'))

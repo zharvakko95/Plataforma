@@ -3,24 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Topic;
 
-class TopicController extends Controller {
+use App\Question;
+use App\Answer;
 
+class QuestionController extends Controller
+{
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id) {
-        $get = Topic::where('id', '=', $id)->get(['id_topic1FK', 'id_topic2FK']);
-        $related;
-        foreach ($get as $g) {
-            $related = Topic::where('id', '=', $g->id_topic1FK)
-                                    ->orWhere('id', '=', $g->id_topic2FK)
-                                    ->get(['name']);
-        }
-        return view('topic', ['id' => $id], ['related' => $related])->with('datas', Topic::where('id', '=', $id)->get());
+    public function index($id)
+    {
+        return view('question', ['id' => $id]);
     }
 
     /**
@@ -28,7 +24,8 @@ class TopicController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function create() {
+    public function create()
+    {
         //
     }
 
@@ -38,16 +35,28 @@ class TopicController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
-        $topic = new Topic;
-        $topic->name = $request['name'];
-        $topic->description = $request['description'];
-        $topic->id_topic1FK = $request['id_topic1FK'];
-        $topic->id_topic2FK = $request['id_topic2FK'];
-        $topic->video = $request['video'];
-        $topic->id_cursoFK = $request['id_cursoFK'];
+    public function store(Request $request)
+    {
+        $question = new Question;
+        
+        $question->description = $request['description'];
+        $question->id_topicFK = $request['id_topicFK'];
+        $question->save();
+        
+        $id = Question::orderBy('id', 'DESC')->limit(1)->get(['id']);
+        
+        for ($i = 1; $i <= 4; $i++) {
+            $answer = new Answer;
+            $answer->description = $request['answer'.$i];
+            if ($i == 1) {
+                $answer->good = 1;
+            } else {
+                $answer->good = 0;
+            }
+            $answer->id_questionFK = $id[0]->id;
+            $answer->save();
+        }
 
-        $topic->save();
         return redirect('home');
     }
 
@@ -57,7 +66,8 @@ class TopicController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id) {
+    public function show($id)
+    {
         //
     }
 
@@ -67,7 +77,8 @@ class TopicController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id) {
+    public function edit($id)
+    {
         //
     }
 
@@ -78,7 +89,8 @@ class TopicController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id) {
+    public function update(Request $request, $id)
+    {
         //
     }
 
@@ -88,8 +100,8 @@ class TopicController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id) {
+    public function destroy($id)
+    {
         //
     }
-
 }

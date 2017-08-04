@@ -7,7 +7,7 @@
             <div>
                 <ul>
                     @foreach ($topics as $topic)
-                    <li><a href="">{{ $topic->name }}<a></li>
+                    <li><a href="{{ url('topic/id='.$topic->id) }}">{{ $topic->name }}<a></li>
                     @endforeach
                 </ul>
             </div>
