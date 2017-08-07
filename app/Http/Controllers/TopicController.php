@@ -5,16 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Topic;
 
-class TopicController extends Controller
-{
+class TopicController extends Controller {
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-
+    public function index($id) {
+        $get = Topic::where('id', '=', $id)->get(['id_topic1FK', 'id_topic2FK']);
+        $related;
+        foreach ($get as $g) {
+            $related = Topic::where('id', '=', $g->id_topic1FK)
+                                    ->orWhere('id', '=', $g->id_topic2FK)
+                                    ->get(['name']);
+        }
+        return view('topic', ['id' => $id], ['related' => $related])->with('datas', Topic::where('id', '=', $id)->get());
     }
 
     /**
@@ -22,8 +28,7 @@ class TopicController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create() {
         //
     }
 
@@ -33,8 +38,7 @@ class TopicController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         $topic = new Topic;
         $topic->name = $request['name'];
         $topic->description = $request['description'];
@@ -53,8 +57,7 @@ class TopicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
+    public function show($id) {
         //
     }
 
@@ -64,8 +67,7 @@ class TopicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+    public function edit($id) {
         //
     }
 
@@ -76,9 +78,8 @@ class TopicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-    
+    public function update(Request $request, $id) {
+        //
     }
 
     /**
@@ -87,8 +88,8 @@ class TopicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id) {
         //
     }
+
 }

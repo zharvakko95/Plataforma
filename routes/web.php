@@ -47,13 +47,7 @@ Route::post('question', 'QuestionController@store');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-<<<<<<< HEAD
-Route::get('/editarcurso/id={id}', 'GradesController@getEdit');
-//
- Route::get('/curso/id={id}', 'GradesController@index');
-//
-// Route::get('/editarcurso/id={id}', 'GradesController@updateData');
-=======
+
 
 Route::get('/curso/id={id}', 'GradesController@index');
 
@@ -62,4 +56,3 @@ Route::get('/topic/id={id}', 'TopicController@index');
 Route::get('/review/id={id}', 'ReviewController@index');
 
 Route::get('/question/id={id}', 'QuestionController@index');
->>>>>>> 08622ed40582d7d80f1fecc0f89a602667264a52
