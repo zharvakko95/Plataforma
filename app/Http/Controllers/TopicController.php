@@ -14,7 +14,7 @@ class TopicController extends Controller
      */
     public function index()
     {
-        
+
     }
 
     /**
@@ -78,7 +78,7 @@ class TopicController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+    
     }
 
     /**

@@ -56,7 +56,6 @@
 
                             @if(!Request::is('registrarcurso') && !Request::is('home'))
                             <li><a href="{{ url('registertopic/id/'.$id) }}">+ Tema</a></li>
-                            <li><a href="#">Editar Curso</a></li>
                             @elseif(Request::is('home') && !Request::is('curso'))
                             <li><a href="{{ route('registrarcurso') }}">+ Curso</a></li>
                             @elseif (!Request::is('home'))
@@ -93,6 +92,9 @@
         </div>
 
         <!-- Scripts -->
+
         <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ asset('js/scripts.js') }}"></script>
+
     </body>
 </html>

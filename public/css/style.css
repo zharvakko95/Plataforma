@@ -6,11 +6,22 @@ input::-webkit-inner-spin-button {
 	margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
 
+html,body {
+    padding:0 !important;
+    margin:0 !important;
+    outline:none !important;
+    border:0 !important;
+    background:rgba(50,50,50,1);
+    background-size:100% auto;
+    background-blend-mode:multiply;
+    height: 100%;
+}
+
 #carrousel {
 }
 
 #carrousel-content1 {
-	background-image: url("../images/bg.jpg"); 
+	background-image: url("../images/bg.jpg");
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -19,7 +30,7 @@ input::-webkit-inner-spin-button {
         padding: 20% 0;
 }
 #carrousel-content2 {
-	background-image: url("../images/bg.jpg"); 
+	background-image: url("../images/bg.jpg");
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -28,7 +39,7 @@ input::-webkit-inner-spin-button {
         padding: 20% 0;
 }
 #carrousel-content3 {
-	background-image: url("../images/bg.jpg"); 
+	background-image: url("../images/bg.jpg");
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -44,4 +55,31 @@ input::-webkit-inner-spin-button {
 
 textarea {
     resize: none;
+}
+
+#profileImg {
+    height:120px;
+    width:120px;
+    margin:20px 15px;
+    box-shadow:2px 2px 8px 0 rgba(0,0,0,0.8);
+    vertical-align:middle;
+    border-radius:100px;
+    background-position:center;
+    float: left;
+    background-size:auto 100%;
+}
+
+label[for='profilePic']{
+    width:auto;
+    height:auto;
+    margin-left:5%;
+    margin-top:5px;
+    border:1px solid rgba(255,255,255,0.5);
+    color:rgba(255,255,255,0.7);
+    background:transparent;
+    text-indent:5%;
+    border-radius:3px;
+    float: left;
+    outline-color:rgba(255,255,255,0.8);
+    box-shadow:3px 3px 8px 2px rgba(0,0,0,.8);
 }

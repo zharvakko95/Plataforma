@@ -30,13 +30,20 @@ Route::get('/registertopic/id/{id}', function ($id) {
 Route::get('/curso', function () {
     return view('curso');
 });
+Route::get('/editarcurso', function () {
+    return view('editar_curso');
+});
+ // Route::post('home','GradesController@getData');
 
 Route::post('store','GradesController@store');
-
+Route::post('updateData','GradesController@updateData');
 Route::post('topic', 'TopicController@store');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/curso/id={id}', 'GradesController@index');
+Route::get('/editarcurso/id={id}', 'GradesController@getEdit');
+//
+ Route::get('/curso/id={id}', 'GradesController@index');
+//
+// Route::get('/editarcurso/id={id}', 'GradesController@updateData');
