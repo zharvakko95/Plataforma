@@ -3,30 +3,29 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Review;
 use App\Question;
 use App\Answer;
+use App\Topic;
 
-class ReviewController extends Controller
-{
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
-    {
+    public function index($id) {
         $getQuestions = Question::where('id_topicFK', '=', $id)->get();
-        foreach ($getQuestions as $gQ){
-            $getAnswers = Answer::where('id_questionFK', '=', $gQ->id)->get();    
+        foreach ($getQuestions as $gQ) {
+            $getAnswers = Answer::where('id_questionFK', '=', $gQ->id)->get();
         }
-        if($getQuestions == '[]'){
-            return view('review', ['id' => $id, 'noQuestions' => true]);
+        $getTopic = Topic::where('id', '=', $id)->get();
+        if ($getQuestions == '[]') {
+            return view('review', ['id' => $id, 'noQuestions' => true, 'topic' => $getTopic]);
         } else {
-            return view('review', ['id' => $id, 'answers' => $getAnswers, 'questions' => $getQuestions, 'noQuestions' => false]);
+            return view('review', ['id' => $id, 'answers' => $getAnswers, 'questions' => $getQuestions,
+                'noQuestions' => false, 'topic' => $getTopic]);
         }
-        
     }
 
     /**
@@ -34,8 +33,7 @@ class ReviewController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create() {
         //
     }
 
@@ -45,16 +43,16 @@ class ReviewController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         $review = new Review;
-        $review->score = $request['score']; 
+        
+        
+        $request['answer'];
+        
         $review->id_userFK = $request['id_userFK'];
-        $review->id_questionFK = $request['id_questionFK'];
-        $review->id_questanswerFK = $request['id_questanswerFK'];
         $review->id_topicFK = $request['id_topicFK'];
-        $review->save();
-        return redirect('home', ['request' => $request]);
+        //$review->save();
+        //return redirect('home', ['request' => $request]);
     }
 
     /**
@@ -63,8 +61,7 @@ class ReviewController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
+    public function show($id) {
         //
     }
 
@@ -74,8 +71,7 @@ class ReviewController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+    public function edit($id) {
         //
     }
 
@@ -86,8 +82,7 @@ class ReviewController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id) {
         //
     }
 
@@ -97,8 +92,8 @@ class ReviewController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id) {
         //
     }
+
 }

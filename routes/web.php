@@ -40,6 +40,8 @@ Route::post('topic', 'TopicController@store');
 
 Route::post('question', 'QuestionController@store');
 
+Route::post('review', 'ReviewController@store');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
