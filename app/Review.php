@@ -9,6 +9,6 @@ class Review extends Model
     protected $table = 'review';
     
     protected $fillable = [
-        'score', 'id_userFK', 'id_questionFK', 'id_questanswerFK', 'id_topicFK',
+        'score', 'id_userFK', 'id_topicFK',
     ];
 }

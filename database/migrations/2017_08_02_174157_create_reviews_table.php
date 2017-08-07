@@ -17,8 +17,6 @@ class CreateReviewsTable extends Migration
             $table->increments('id');
             $table->integer('score');
             $table->integer('id_userFK');
-            $table->integer('id_questionFK');
-            $table->integer('id_answerFK');
             $table->integer('id_topicFK');
             $table->timestamps();
         });

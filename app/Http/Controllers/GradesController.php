@@ -14,10 +14,9 @@ class GradesController extends Controller {
         return view('curso', ['id' => $id])->with('topics', Topic::where('id_cursoFK', '=', $id)->get());
     }
 
-    public function getEdit($id){
-           $grades = Grade::where('id', '=', $id)->get();
-           return view('editar_curso', ['grades' => $grades],['id' => $id]);
-
+    public function getEdit($id) {
+        $grades = Grade::where('id', '=', $id)->get();
+        return view('editar_curso', ['grades' => $grades], ['id' => $id]);
     }
 
     public function store(Request $request) {
@@ -37,48 +36,18 @@ class GradesController extends Controller {
         return redirect('home');
     }
 
-     public function updateData(Request $request){
-         $curso = new Grade;
-         $id = $request['id'];
-       if(isset($request->name))
-        {
-           DB::table('curso')->where('id', '=', $id)->update(['name'=> $request->name]);
+    public function updateData(Request $request) {
+        $id = $request['id'];
+        if (isset($request->name)) {
+            DB::table('curso')->where('id', '=', $id)->update(['name' => $request->name]);
         }
-          if(isset($request->logotipo))
-          {
-              $file = Input::file('logotipo');
-          //    $curso->logotipo = $request['logotipo'];
-              $file->move('imagenes', $file->getClientOriginalName());
-          //    $curso->logotipo->storeAs('public/images','filename.jpg');
-              $request->logotipo ='imagenes/'.$file->getClientOriginalName();
+        if (isset($request->logotipo)) {
+            $file = Input::file('logotipo');
+            $file->move('imagenes', $file->getClientOriginalName());
+            $request->logotipo = 'imagenes/' . $file->getClientOriginalName();
 
-            DB::table('curso')->where('id', '=', $id)->update(['logotipo'=> 'imagenes/'.$file->getClientOriginalName()]);
-          }
-
-          // if(isset($request['id_areaFK']))
-          //   {
-          //      DB::table('curso')->where('id', '=', $id)->update(['id_areaFK'=> $request['id_areaFK']]);
-          //   }
-
-      //  if(isset($request->name))
-      //  {
-      //    DB::table('curso')->where('id', $request['user_id'])->update(['name'=> $request->name]);
-      // }
-      //  if(isset($request->logotipo))
-      //  {
-      //      $file = Input::file('logotipo');
-      //      $user->image = $request['image'];
-      //      $file->move('imagenes', $file->getClientOriginalName());
-      //  $user->image->storeAs('public/images','filename.jpg');
-      //      $request->logotipo ='imagenes/'.$file->getClientOriginalName();
-      //
-      //    DB::table('curso')->where('id', $request['user_id'])->update(['logotipo'=> 'imagenes/'.$file->getClientOriginalName()]);
-      //  }
-      //   if(isset($request['id_areaFK']))
-      //   {
-      //     DB::table('curso')->where('id', $request['user_id'])->update(['id_areaFK'=> $request['id_areaFK']]);
-      //   }
-    //  $curso->save();
-       return redirect('home');
-     }
+            DB::table('curso')->where('id', '=', $id)->update(['logotipo' => 'imagenes/' . $file->getClientOriginalName()]);
+        }
+        return redirect('home');
+    }
 }

@@ -47,7 +47,7 @@ class ReviewController extends Controller {
     public function store(Request $request) {
         $review = new Review;
         
-        
+        $questions = Question::all();
         $request['answer'];
         
         $review->id_userFK = $request['id_userFK'];
