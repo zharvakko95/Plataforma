@@ -8,6 +8,7 @@ use App\Question;
 use App\Answer;
 use App\Topic;
 
+class ReviewController extends Controller {
 
     /**
      * Display a listing of the resource.
