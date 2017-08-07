@@ -17,6 +17,7 @@
             <input type='hidden' class='tileId' name="user_id" value=""> -->
             @foreach ($grades as $grade)
             <li>
+                <div id="profileImg" style="background-image:url(' ../{{ $grade->logotipo }} ')"></div>
                 <a href="{{ url('curso/id='.$grade->id) }}">{{ $grade->name }}</a>
                 <a href="{{ url('editarcurso/id='.$grade->id) }}">
                     <div id="profileImg"style="background-image:url(' ../images/play.png')"></div>
