@@ -53,14 +53,14 @@
                             <li><a href="{{ route('login') }}">Sesión</a></li>
                             <li><a href="{{ route('register') }}">Registro</a></li>
                             @else
-
                             @if(!Request::is('registrarcurso') && !Request::is('home') && !Request::is('registertopic'))
                             <li><a href="{{ url('registertopic/id/'.'1') }}">+ Tema</a></li>
                             <li><a href="#">Editar Curso</a></li>
+
                             @elseif(Request::is('home') && !Request::is('curso'))
                             <li><a href="{{ route('registrarcurso') }}">+ Curso</a></li>
                             @elseif (!Request::is('home'))
-                            
+
                             @endif
 
                             <li class="dropdown">
@@ -93,6 +93,9 @@
         </div>
 
         <!-- Scripts -->
+
         <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ asset('js/scripts.js') }}"></script>
+
     </body>
 </html>

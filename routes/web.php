@@ -21,6 +21,10 @@ Route::get('/registertopic/id/{id}', function ($id) {
 Route::get('/curso', function () {
     return view('curso');
 });
+Route::get('/editarcurso', function () {
+    return view('editar_curso');
+});
+ // Route::post('home','GradesController@getData');
 
 Route::get('/topic', function () {
     return view('topic');
@@ -35,7 +39,7 @@ Route::get('/question', function () {
 });
 
 Route::post('store','GradesController@store');
-
+Route::post('updateData','GradesController@updateData');
 Route::post('topic', 'TopicController@store');
 
 Route::post('question', 'QuestionController@store');
@@ -45,6 +49,7 @@ Route::post('review', 'ReviewController@store');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
 
 Route::get('/curso/id={id}', 'GradesController@index');
 
